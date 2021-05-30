@@ -2,3 +2,26 @@
 # See https://docs.bazel.build/versions/master/build-ref.html#BUILD_files
 
 
+
+
+load(":jest.bzl", "jest_test")
+
+exports_files(
+    [
+        "jest.config.js",
+    ],
+    visibility = ["//visibility:public"],
+)
+
+jest_test(
+    name = "test",
+    srcs = [
+           ] + glob(["src/**/*.js"]) + glob(["test/**/*.spec.js"]),
+    jest_config = ":jest.config.js",
+    tags = [
+        # TODO: why does this fail almost all the time, but pass on local Mac?
+        "no-bazelci-mac",
+    ],
+    deps = [
+    ],
+)

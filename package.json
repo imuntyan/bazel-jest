@@ -10,5 +10,13 @@
     "scripts": {
         "build": "bazel build //...",
         "test": "bazel test //..."
+    },
+    "dependencies": {
+        "jest": "27.0.3",
+        "jest-cli": "^27.0.3"
+    },
+    "jest": {
+        "testEnvironment": "node",
+        "transform": {}
     }
 }
