@@ -1,0 +1,19 @@
+# Add rules here to build your software
+# See https://docs.bazel.build/versions/master/build-ref.html#BUILD_files
+
+load("//:jest.bzl", "jest_test")
+
+
+jest_test(
+    name = "jest_test",
+    srcs = [
+           ] + glob(["src/**/*.js"]) + glob(["test/**/*.spec.js"]),
+    jest_config = "//:jest.config.js",
+    jest_reporter = "//:jest-reporter.js",
+    tags = [
+        # TODO: why does this fail almost all the time, but pass on local Mac?
+        "no-bazelci-mac",
+    ],
+    deps = [
+    ],
+)
