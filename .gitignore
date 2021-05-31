@@ -2,6 +2,6 @@
 dist
 bazel-out
 node_modules
-/my_workspace.iml
-/my_workspace.ipr
-/my_workspace.iws
+*.iml
+*.ipr
+*.iws
